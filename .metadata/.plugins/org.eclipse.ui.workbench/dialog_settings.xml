@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<section name="NewWizard.dialogBounds">
+		</section>
+	</section>
+	<section name="org.eclipse.ui.internal.dialogs.WorkbenchEditorsDialog">
+		<item key="allPersp" value="false"/>
+		<item key="sort" value="0"/>
+		<list key="bounds">
+			<item value="351"/>
+			<item value="0"/>
+			<item value="1218"/>
+			<item value="835"/>
+		</list>
+		<list key="columns">
+			<item value="385"/>
+			<item value="771"/>
+		</list>
+	</section>
+</section>

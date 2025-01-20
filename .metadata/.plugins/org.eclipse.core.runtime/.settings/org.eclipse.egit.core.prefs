@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=C\:\\Microservice\\microservice\\.git;C\:\\Microservices-dockerized\\Backend\\.git;C\:\\Microservice-kubernets\\microservice\\.git;
+GitRepositoriesView.GitDirectories.relative=C\:\\Microservice\\microservice\\.git;C\:\\Microservices-dockerized\\Backend\\.git;C\:\\Microservice-kubernets\\microservice\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1
