@@ -13,7 +13,7 @@ public class UserEntity {
 	private String email;
 	private String phoneNumber;
 	private String password;
-	private String rolel;
+	private String role;
 
 	public UserEntity() {
 		super();
@@ -29,7 +29,7 @@ public class UserEntity {
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.rolel = rolel;
+		this.role = rolel;
 	}
 
 	public Long getUserId() {
@@ -81,18 +81,18 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public String getRolel() {
-		return rolel;
+	public String getRole() {
+		return role;
 	}
 
-	public void setRolel(String rolel) {
-		this.rolel = rolel;
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	@Override
 	public String toString() {
 		return "UserEntity [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", phoneNumber=" + phoneNumber + ", password=" + password + ", rolel=" + rolel + "]";
+				+ email + ", phoneNumber=" + phoneNumber + ", password=" + password + ", rolel=" + role + "]";
 	}
 
 }
