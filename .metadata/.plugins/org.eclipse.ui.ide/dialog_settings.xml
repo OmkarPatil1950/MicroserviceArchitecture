@@ -38,6 +38,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\USER\Desktop\Ecommerce\MicroserviceArchitecture"/>
 			<item value="C:\Microservice\microservice"/>
 			<item value="C:\Users\User\Downloads\SpringRest_API_Exam\SpringRest_API_Exam"/>
 			<item value="C:\Microservice-kubernets\microservice\order"/>
