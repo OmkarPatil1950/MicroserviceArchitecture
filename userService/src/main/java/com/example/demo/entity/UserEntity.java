@@ -2,6 +2,7 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
+@Entity
 public class UserEntity {
 
 	@Id
@@ -12,7 +13,6 @@ public class UserEntity {
 	private String lastName;
 	private String email;
 	private String phoneNumber;
-	private String password;
 	private String role;
 
 	public UserEntity() {
@@ -28,7 +28,6 @@ public class UserEntity {
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.password = password;
 		this.role = rolel;
 	}
 
@@ -73,14 +72,6 @@ public class UserEntity {
 	}
 
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getRole() {
 		return role;
 	}
@@ -92,7 +83,7 @@ public class UserEntity {
 	@Override
 	public String toString() {
 		return "UserEntity [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
-				+ email + ", phoneNumber=" + phoneNumber + ", password=" + password + ", rolel=" + role + "]";
+				+ email + ", phoneNumber=" + phoneNumber  + ", rolel=" + role + "]";
 	}
 
 }
