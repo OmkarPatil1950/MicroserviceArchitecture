@@ -4,6 +4,8 @@ package com.example.demo.security;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
@@ -21,13 +23,25 @@ public class CustomOpaqueTokenIntrospector implements OpaqueTokenIntrospector {
 
   private final OpaqueTokenIntrospector delegate;
 
-  public CustomOpaqueTokenIntrospector() {
-      this.delegate = new NimbusOpaqueTokenIntrospector(
-              "http://192.168.1.206:32080/realms/aarogyamandi/protocol/openid-connect/token/introspect",
-              "aarogyamandi-cli",
-              "rt855kE2yuVampb6eX58RVoMVfGTPOAI");
-  }
+  private String CLIENT_ID;
+  private String CLIENT_SECRET;
+  private String INTROSPECT_URI;
+  
+  @Autowired
+  public CustomOpaqueTokenIntrospector(
+      @Value("${keycloak.user.client-id}") String CLIENT_ID,
+      @Value("${keycloak.user.client-secret}") String CLIENT_SECRET,
+      @Value("${keycloak.introspectUri}") String INTROSPECT_URI) {
 
+      this.CLIENT_ID = CLIENT_ID;
+      this.CLIENT_SECRET = CLIENT_SECRET;
+      this.INTROSPECT_URI = INTROSPECT_URI;
+
+      this.delegate = new NimbusOpaqueTokenIntrospector(
+              INTROSPECT_URI,
+              CLIENT_ID,
+              CLIENT_SECRET);
+  }
   @Override
   public OAuth2AuthenticatedPrincipal introspect(String token) {
       OAuth2AuthenticatedPrincipal principal = delegate.introspect(token);

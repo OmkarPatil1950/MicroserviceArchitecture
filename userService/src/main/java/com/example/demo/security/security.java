@@ -11,8 +11,8 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableMethodSecurity
 public class security {
-	
-	@Autowired 
+
+	@Autowired
 	private CustomOpaqueTokenIntrospector customTokenIntrospector;
 
 	@Bean
@@ -21,7 +21,9 @@ public class security {
 		http.cors().and().csrf().disable();
 		
 		http.authorizeHttpRequests(authorize -> authorize
-               .anyRequest().permitAll()
+               .requestMatchers("/api/users/save").permitAll()
+               .requestMatchers("/api/users/login").permitAll()
+               .anyRequest().authenticated()
 				);
 		
 		http.oauth2ResourceServer(oauth2 -> oauth2.opaqueToken(
