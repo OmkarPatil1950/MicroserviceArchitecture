@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.LoginDTO;
+import com.example.demo.dto.UserDto;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 
@@ -50,7 +51,8 @@ public class userController {
 
 	// Update a user
 	@PutMapping("/{id}")
-	public ResponseEntity<UserEntity> updateUser(@PathVariable String id, @RequestBody UserEntity user) {
+	@PreAuthorize("hasRole('user')")
+	public ResponseEntity<UserEntity> updateUser(@PathVariable String id, @RequestBody UserDto user) {
 		UserEntity updatedUser = userService.updateUser(id, user);
 		return ResponseEntity.ok(updatedUser);
 	}

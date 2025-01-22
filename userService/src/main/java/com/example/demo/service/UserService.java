@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dto.UserDto;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.keycloak.KeyclockService;
 import com.example.demo.repo.UserRepository;
@@ -67,7 +68,9 @@ public class UserService {
 	}
 
 	// Update a user
-	public UserEntity updateUser(String id, UserEntity updatedUser) {
+	public UserEntity updateUser(String id, UserDto updatedUser) {
+		keycloakservice.updateUser(id, updatedUser);
+		
 		UserEntity existingUser = getUserById(id);
 
 		existingUser.setFirstName(updatedUser.getFirstName());

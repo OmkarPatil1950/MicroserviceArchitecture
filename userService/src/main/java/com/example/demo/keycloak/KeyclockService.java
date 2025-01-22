@@ -2,6 +2,8 @@ package com.example.demo.keycloak;
 
 import java.util.Arrays;
 import java.util.Collections;
+
+import org.apache.catalina.User;
 import org.keycloak.admin.client.CreatedResponseUtil;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.RealmResource;
@@ -13,6 +15,8 @@ import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.dto.UserDto;
 import com.example.demo.security.KeycloakUtils;
 import jakarta.ws.rs.core.Response;
 
@@ -90,4 +94,13 @@ public class KeyclockService {
 
 	}
 
+	public void updateUser(String id,UserDto user) {
+		Keycloak token = keycloakutils.getAdminAccessToken();
+		UserRepresentation userRepresentation = new UserRepresentation();
+		userRepresentation.setFirstName(user.getFirstName());
+		userRepresentation.setLastName(user.getLastName());
+		userRepresentation.setEmail(user.getEmail());
+		userRepresentation.setUsername(user.getEmail());
+		token.realm(Realm).users().get(id).update(userRepresentation);
+	}
 }
