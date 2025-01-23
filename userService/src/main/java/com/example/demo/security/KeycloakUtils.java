@@ -1,6 +1,5 @@
 package com.example.demo.security;
 
-
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
@@ -9,11 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-
 @Component
 public class KeycloakUtils {
-
-
 
 	@Value("${keycloak.auth-server-url}")
 	private String AUTH_SERVER_URL;
@@ -54,13 +50,13 @@ public class KeycloakUtils {
 	}
 
 	public AccessTokenResponse getAccessToken(String email, String password) {
-		
-		Keycloak keycloak = KeycloakBuilder.builder().serverUrl(AUTH_SERVER_URL).realm(REALM).clientId(CLIENT_ID).clientSecret(CLIENT_SECRET).username(email).password(password).grantType(OAuth2Constants.PASSWORD).build();
+
+		Keycloak keycloak = KeycloakBuilder.builder().serverUrl(AUTH_SERVER_URL).realm(REALM).clientId(CLIENT_ID)
+				.clientSecret(CLIENT_SECRET).username(email).password(password).grantType(OAuth2Constants.PASSWORD)
+				.build();
 		// TODO Auto-generated method stub
-		AccessTokenResponse accessTokenResponse= keycloak.tokenManager().getAccessToken();
+		AccessTokenResponse accessTokenResponse = keycloak.tokenManager().getAccessToken();
 		return accessTokenResponse;
 	}
-	
-	
-	
+
 }

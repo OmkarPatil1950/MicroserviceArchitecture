@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/users")
-public class userController {
+public class UserController {
 
 	@Autowired
 	private UserService userService;
@@ -37,6 +37,7 @@ public class userController {
 
 	// Get all users
 	@GetMapping
+	@PreAuthorize("hasRole('user')")
 	public ResponseEntity<List<UserEntity>> getAllUsers() {
 		List<UserEntity> users = userService.getAllUsers();
 		return ResponseEntity.ok(users);
@@ -44,6 +45,7 @@ public class userController {
 
 	// Get user by ID
 	@GetMapping("/{id}")
+	@PreAuthorize("hasRole('user')")
 	public ResponseEntity<UserEntity> getUserById(@PathVariable String id) {
 		UserEntity user = userService.getUserById(id);
 		return ResponseEntity.ok(user);

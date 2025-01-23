@@ -2,9 +2,11 @@ package com.example.demo.controller;
 
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.entity.Inventory;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.service.InventoryService;
 
 import java.util.List;
@@ -55,6 +57,12 @@ public class InventoryController {
     @GetMapping("/in-stock/{skuCode}")
     public ResponseEntity<Boolean> isProductInStock(@PathVariable String skuCode) {
         return ResponseEntity.ok(inventoryService.isProductInStock(skuCode));
+    }
+    
+    @KafkaListener(topics = "user-registration", groupId = "7")
+    public void kafkaListner(UserEntity userEntity) {
+    	System.out.println("Inside listener");
+    	System.out.println(userEntity);
     }
 }
 

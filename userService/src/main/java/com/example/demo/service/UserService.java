@@ -17,6 +17,7 @@ import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UserResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
 public class UserService {
@@ -32,6 +33,9 @@ public class UserService {
 
 	@Value("${keycloak.realm}")
 	private String REALM;
+	
+	@Autowired
+    private KafkaTemplate<String, Object> kafkaTemplate;
 
 	// Create a new user
 	public UserEntity createUser(UserEntity user) {
@@ -39,17 +43,25 @@ public class UserService {
 				user.getEmail(), user.getPhoneNumber(), user.getRole(), user.getPassword());
 
 		String id = response.getLocation().getPath().replaceAll(".*/([^/]+)", "$1");
-//
-//		user.setUserId(id);
+		
 		user.setUserId(id); // Generate a unique ID
 
 		System.out.println(user + " user before saving on db");
-		return userRepository.save(user);
+		UserEntity u = userRepository.save(user);
+		createUserRegisterEvent(u);
+		return u;
 	}
 
 	// Get all users
 	public List<UserEntity> getAllUsers() {
 		return userRepository.findAll();
+	}
+	
+	private void createUserRegisterEvent(UserEntity user) {
+		
+		System.out.println("Sending the kafka message");
+		kafkaTemplate.send("user-registration", user);
+		
 	}
 
 	// Get user by ID
