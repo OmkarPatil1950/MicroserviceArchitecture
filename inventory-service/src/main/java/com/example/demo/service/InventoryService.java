@@ -18,5 +18,5 @@ public interface InventoryService {
 
     List<Inventory> getAllInventory();
 
-    boolean isProductInStock(String skuCode);
+    boolean isProductInStock(Long ProductId);
 }

@@ -4,4 +4,3 @@ Implementation-Title: userService
 Implementation-Version: 0.0.1-SNAPSHOT
 Created-By: Maven Integration for Eclipse
 
-

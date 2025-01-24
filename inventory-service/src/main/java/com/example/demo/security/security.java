@@ -21,7 +21,7 @@ public class security {
 		http.cors().and().csrf().disable();
 		
 		http.authorizeHttpRequests(authorize -> authorize
-               .anyRequest().authenticated()
+               .anyRequest().permitAll()
 				);
 		
 		http.oauth2ResourceServer(oauth2 -> oauth2.opaqueToken(

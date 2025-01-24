@@ -70,12 +70,14 @@ public class InventoryServiceImplementation implements InventoryService {
     }
 
     @Override
-    public boolean isProductInStock(String skuCode) {
-        Inventory inventory = inventoryRepository.findBySkuCode(skuCode)
-                .orElseThrow(() -> new IllegalArgumentException("Inventory not found!"));
+    public boolean isProductInStock(Long productId) {
+        Inventory inventory = inventoryRepository.findById(productId).orElse(null);
+        if (inventory == null) {
+            return false; // Product is not found in inventory
+        }
         return inventory.getQuantity() > 0;
     }
-    
+
  // Simulate delay for database call
     private void simulateDelay() {
         try {
@@ -85,4 +87,6 @@ public class InventoryServiceImplementation implements InventoryService {
             throw new RuntimeException("Thread interrupted during delay simulation", e);
         }
     }
+
+	
 }

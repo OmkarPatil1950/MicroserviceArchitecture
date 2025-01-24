@@ -22,7 +22,7 @@ public class Cart {
     private Long cartId;
 
     @Column(nullable = false)
-    private Long userId; // Foreign key to User entity
+    private String userId; // Foreign key to User entity
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id")
@@ -37,11 +37,11 @@ public class Cart {
         this.cartId = cartId;
     }
 
-    public Long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
