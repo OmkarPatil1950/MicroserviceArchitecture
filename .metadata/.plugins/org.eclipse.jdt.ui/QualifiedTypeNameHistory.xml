@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+<<<<<<< HEAD
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+    <fullyQualifiedTypeName name="org.hibernate.validator.internal.IgnoreForbiddenApisErrors"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.example.demo.entity.UserEntity"/>
+    <fullyQualifiedTypeName name="com.cart.repository.CartRepository"/>
+    <fullyQualifiedTypeName name="com.cart.entity.CartItem"/>
+    <fullyQualifiedTypeName name="com.cart.service.CartService"/>
+    <fullyQualifiedTypeName name="com.cart.entity.Cart"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.FetchType"/>
+    <fullyQualifiedTypeName name="com.order.repository.OrderRepository"/>
+    <fullyQualifiedTypeName name="com.order.service.OrderService"/>
+    <fullyQualifiedTypeName name="com.order.entity.Order"/>
+    <fullyQualifiedTypeName name="com.order.entity.OrderItem"/>
+=======
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="java.lang.Long"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
@@ -60,4 +83,5 @@
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
     <fullyQualifiedTypeName name="org.springframework.security.access.prepost.PreAuthorize"/>
+>>>>>>> 1d8508f54eab0af42508b1bfe765570f9f6c3c1c
 </qualifiedTypeNameHistroy>

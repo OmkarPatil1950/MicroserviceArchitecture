@@ -38,7 +38,11 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+<<<<<<< HEAD
+			<item value="C:\Users\USER\Desktop\Ecommerce\MicroserviceArchitecture\inventory-service"/>
+=======
 			<item value="C:\Users\User\Desktop\Microservices Project\MicroserviceArchitecture"/>
+>>>>>>> 1d8508f54eab0af42508b1bfe765570f9f6c3c1c
 			<item value="C:\Users\USER\Desktop\Ecommerce\MicroserviceArchitecture"/>
 			<item value="C:\Microservice\microservice"/>
 			<item value="C:\Users\User\Downloads\SpringRest_API_Exam\SpringRest_API_Exam"/>
